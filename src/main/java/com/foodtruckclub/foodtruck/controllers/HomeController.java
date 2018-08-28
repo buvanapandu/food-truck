@@ -69,4 +69,7 @@ public class HomeController {
         return "redirect:";
     }
 
+    //public String displayloc(Model model){
+      //  return "location/index";
+    //}
 }
