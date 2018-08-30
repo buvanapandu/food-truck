@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>${title}</title>
+
+</head>
+<body class="container">
+
+<nav>
+<a href="/home/add">Add Truck</a>   |
+<a href="/home/remove">Remove Truck</a>     |
+</nav>
+
+<h1 th:text="'Hello, ' + ${user.username}"></h1>
+
+</body>
+</html>

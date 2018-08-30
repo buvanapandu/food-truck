@@ -25,7 +25,7 @@ public class HomeController {
     @RequestMapping(value = "")
     public String index(Model model) {
 
-        model.addAttribute("trucks", homeDao.findAll()); // it will all the cheese data from the DB
+        model.addAttribute("trucks", homeDao.findAll()); // it will fetch all the truck data from the DB
         model.addAttribute("title", "Food Truck Club");
 
         return "home/index";
