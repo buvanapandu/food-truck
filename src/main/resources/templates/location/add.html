@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" style="max-width:600px;" th:object="${location}">
+    <div class="form-group">
+        <label for="truck">Truck</label>
+        <select class="form-control" id="truck" name="truck" th:value="*{truckId}">
+            <option value="">Select truck</option>
+            <option th:each="truck : ${trucks}" th:value="${truck.id}" th:text="${truck.name}"></option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="street-address">Street Address</label>
+        <input class="form-control" id="street-address" type="text" name="streetAddress" th:value="${streetAddress}"/>
+    </div>
+    <div class="form-group">
+        <label for="city-field">City:</label>
+        <input class="form-control" id="city-field" type="city" name="city" th:value="${city}"/>
+    </div>
+    <div class="form-group">
+        <label for="state-field">State:</label>
+        <input class="form-control" id="state-field" type="state" name="state" th:value="${state}"/>
+    </div>
+    <div class="form-group">
+        <label for="zip-field">Zip code:</label>
+        <input class="form-control" id="zip-field" type="zip" name="zip" th:value="${zip}"/>
+    </div>
+    <input type="submit" class="btn btn-info btn-block" value="Submit" />
+</form>
+<!--<span class="error" th:text="${message}"></span>-->
+</body>
+</html>
