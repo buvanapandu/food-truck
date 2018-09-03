@@ -1,16 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
 
-    <meta charset="UTF-8"/>
-    <title>Geo Locations</title>
-    <script src="script.js"></script>
-    <style>
-        /* style goes here */
-    </style>
-</head>
-<body>
-    <h1>My Location is</h1>
-    <p id="location"></p>
+<nav th:replace="fragments :: navigation"></nav>
+
+<p>Location saved"
+
 </body>
 </html>

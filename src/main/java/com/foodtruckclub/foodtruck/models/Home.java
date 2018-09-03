@@ -1,8 +1,11 @@
 package com.foodtruckclub.foodtruck.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -11,7 +14,7 @@ public class Home {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Integer id;
 
     @NotNull
     @Size(min=3, max=25)
@@ -25,6 +28,10 @@ public class Home {
 
     public Home(){}
 
+    public Integer getId() {
+        return id;
+    }
+    
     public String getName() {
         return name;
     }
@@ -39,5 +46,26 @@ public class Home {
 
     public void setType(TruckType type) {
         this.type = type;
+    }
+
+    @OneToOne(mappedBy = "home", cascade = CascadeType.ALL, 
+              fetch = FetchType.LAZY, optional = false)
+    private Location location;
+ 
+ 
+    public void setLocation(Location location) {
+        if (location == null) {
+            if (this.location != null) {
+                this.location.setHome(null);
+            }
+        }
+        else {
+            location.setHome(this);
+        }
+        this.location = location;
+    }
+
+    public Location getLocation() {
+        return location;
     }
 }
