@@ -7,9 +7,13 @@
 </head>
 <body class="container">
 
-<nav>
-<a href="/home/add">Add Truck</a>   |
-<a href="/home/remove">Remove Truck</a>     |
+<nav th:fragment="navigation">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="/home">Home</a></li>
+        <li><a href="/home/add">Add Truck</a></li>
+        <li><a href="/home/remove">Remove Truck</a></li>
+        <li><a href="/user/logout">Logout</a></li>
+    </ul>
 </nav>
 
 <h1 th:text="'Hello, ' + ${user.username}"></h1>
