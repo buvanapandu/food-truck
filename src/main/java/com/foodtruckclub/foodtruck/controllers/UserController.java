@@ -48,11 +48,5 @@ public class UserController {
             return "/user/add";
         }
     }
-    //add login method check validation
-    //check empty validation
-    /*@RequestMapping (value = "login", method = RequestMethod.GET)
-    public String loginPage(Model model, @ModelAttribute @Valid User user, String username, Errors errors){
-          List<User> existingUser = userDao.findByUsername(user.getUsername());
-          return "/user/login";
-    }*/
+
 }

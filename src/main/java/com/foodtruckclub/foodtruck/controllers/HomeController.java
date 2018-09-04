@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 
@@ -29,6 +30,13 @@ public class HomeController {
         model.addAttribute("title", "Food Truck Club");
 
         return "home/index";
+    }
+    @RequestMapping(value= "login")
+    public ModelAndView login(){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("/home/login");
+        return mav;
+        //return "home/login";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
