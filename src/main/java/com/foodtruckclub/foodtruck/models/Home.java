@@ -1,13 +1,10 @@
 package com.foodtruckclub.foodtruck.models;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Home {
@@ -20,7 +17,12 @@ public class Home {
     @Size(min=3, max=25)
     private String name;
 
+    @OneToMany
+    @JoinColumn(name = "Truck_id")
+    private List<User> users = new ArrayList<>();
+
     private TruckType type;
+
 
     public Home(String name) {
         this.name = name;
@@ -47,6 +49,8 @@ public class Home {
     public void setType(TruckType type) {
         this.type = type;
     }
+
+
 
     @OneToOne(mappedBy = "home", cascade = CascadeType.ALL, 
               fetch = FetchType.LAZY, optional = false)

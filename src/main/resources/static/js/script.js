@@ -1,3 +1,4 @@
+/*
 function displayLocation(position){
     var latitude = position.coords.latitude
     var longitude = position.coords.longitude
@@ -11,4 +12,4 @@ window.onload = function(){
     } else {
         alert("Sorry, this browser does not support geolocation");
     }
-}
+}*/

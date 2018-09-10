@@ -2,11 +2,11 @@ package com.foodtruckclub.foodtruck.models;
 
 import org.hibernate.validator.constraints.Email;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User {
@@ -24,9 +24,10 @@ public class User {
     private String email;
 
     @NotNull
-    @Size(min=6)
+    @Size(min=6, message = "password should be minimum 6")
     private String password;
     //add error message
+
 
     public User(String username, String email, String password) {
         this.username = username;
@@ -34,10 +35,11 @@ public class User {
         this.password = password;
     }
 
+    @ManyToOne
+    private Home home;
+
     public User() {
     }
-
-
     public String getUsername() {
         return username;
     }

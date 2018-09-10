@@ -20,13 +20,14 @@ import javax.validation.Valid;
 public class HomeController {
 
     @Autowired
-    private HomeDao homeDao; //instance of interface
+    private HomeDao homeDao;
 
     // Request path: /home
     @RequestMapping(value = "")
     public String index(Model model) {
 
         model.addAttribute("trucks", homeDao.findAll()); // it will fetch all the truck data from the DB
+        //model.addAttribute("location", locationDao.findall());
         model.addAttribute("title", "Food Truck Club");
 
         return "home/index";
@@ -77,7 +78,4 @@ public class HomeController {
         return "redirect:";
     }
 
-    /*public String displayloc(Model model){
-        return "location/index";
-    }*/
-}
+    }

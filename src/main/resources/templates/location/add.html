@@ -4,7 +4,15 @@
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
 
-<nav th:replace="fragments :: navigation"></nav>
+<nav th:fragment="navigation">
+    <ul class="nav nav-tabs" role="tablist">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/home/add">Add Truck</a></li>
+        <li><a href="/home/remove">Remove Truck</a></li>
+        <li><a href="/user/add">Signup</a></li>
+        <li class="active"><a href="/location/add">Location</a></li>
+    </ul>
+</nav>
 
 <form method="post" style="max-width:600px;" th:object="${location}">
     <div class="form-group">

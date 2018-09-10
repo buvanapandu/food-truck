@@ -7,6 +7,7 @@ public enum TruckType {
     MEXICAN ("Mexican"),
     INDIAN ("Indian");
 
+
     private final String name;
 
     TruckType(String name) {

@@ -4,7 +4,14 @@
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
 
-<nav th:replace="fragments :: navigation"></nav>
+<nav th:fragment="navigation">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="/home">Home</a></li>
+        <li><a href="/user/add">Signup</a></li>
+        <li><a href="/user/login">Login</a></li>
+    </ul>
+</nav>
+
 
 <p th:unless="${trucks} and ${trucks.size()}">no trucks nearby :(</p>
 
@@ -13,11 +20,16 @@
     <tr>
         <th>Name</th>
         <th>Type of Food</th>
+        <th>Location</th>
+
     </tr>
 
     <tr th:each="truck : ${trucks}">
         <td th:text="${truck.name}"></td>
         <td th:text="${truck.type.name}"></td>
+        <!--<td th:text="${truck.location}"></td>-->
+
+
     </tr>
 
 </table>

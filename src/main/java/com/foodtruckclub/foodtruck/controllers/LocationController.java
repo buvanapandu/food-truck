@@ -20,10 +20,10 @@ import com.foodtruckclub.foodtruck.models.data.LocationDao;
 public class LocationController {
 
     @Autowired
-    private HomeDao homeDao; //instance of interface
+    private HomeDao homeDao;
 
     @Autowired
-    private LocationDao locationDao; //instance of interface
+    private LocationDao locationDao;
 
     @RequestMapping (value= "add")
     public String index(Model model){
@@ -47,8 +47,6 @@ public class LocationController {
             initModel(model);
             return "location/add";
         }
-        // locationDao.save(newLocation);
-        //Home home = homeDao.findOne(newLocation.getTruckId());
 
 
         Home home = homeDao.findOne(1);
